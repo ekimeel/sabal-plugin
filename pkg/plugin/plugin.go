@@ -20,7 +20,7 @@ type Plugin interface {
 	Name() string
 	Version() string
 	Config() Config
-	Status() int8
+	Status() Status
 	LastRuntime() time.Time
 	Offset() Offset
 }
