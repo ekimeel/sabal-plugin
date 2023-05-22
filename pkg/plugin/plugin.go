@@ -22,6 +22,7 @@ type Plugin interface {
 	Config() Config
 	Status() int8
 	LastRuntime() time.Time
+	Offset() int64
 }
 
 type Offset struct {
