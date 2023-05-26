@@ -19,7 +19,6 @@ type Plugin interface {
 	Install(env *Environment) error
 	Name() string
 	Version() string
-	Config() Config
 	Status() Status
 	LastRuntime() time.Time
 	Offset() Offset
@@ -30,6 +29,7 @@ type Offset struct {
 }
 
 type Environment struct {
+	Config        map[string]interface{}
 	EquipService  pb.EquipServiceClient
 	PointService  pb.PointServiceClient
 	MetricService pb.MetricServiceClient
