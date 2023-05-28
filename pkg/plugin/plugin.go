@@ -1,7 +1,8 @@
 package plugin
 
 import (
-	"github.com/ekimeel/sabal-pb/pb"
+	"database/sql"
+	"plugin"
 	"time"
 )
 
@@ -15,8 +16,8 @@ const (
 )
 
 type Plugin interface {
-	Run(offset Offset) error
-	Install(env *Environment) error
+	Run(env *Context) error
+	Install(env *Context) error
 	Name() string
 	Version() string
 	Status() Status
@@ -28,9 +29,12 @@ type Offset struct {
 	Value time.Time
 }
 
-type Environment struct {
-	Config        map[string]interface{}
-	EquipService  pb.EquipServiceClient
-	PointService  pb.PointServiceClient
-	MetricService pb.MetricServiceClient
+type Context struct {
+	PluginManager *PluginManager
+	DB            *sql.DB
+	Services      map[string]interface{}
+}
+
+type PluginManager interface {
+	RunChannel() chan plugin.Plugin
 }
