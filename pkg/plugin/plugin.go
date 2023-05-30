@@ -1,7 +1,6 @@
 package plugin
 
 import (
-	"database/sql"
 	"plugin"
 	"time"
 )
@@ -27,12 +26,6 @@ type Plugin interface {
 
 type Offset struct {
 	Value time.Time
-}
-
-type Context struct {
-	PluginManager *PluginManager
-	DB            *sql.DB
-	Services      map[string]interface{}
 }
 
 type PluginManager interface {
