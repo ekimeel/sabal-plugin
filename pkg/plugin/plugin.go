@@ -15,8 +15,8 @@ const (
 )
 
 type Plugin interface {
-	Run(env *Context) error
-	Install(env *Context) error
+	Run(env *Environment) error
+	Install(env *Environment) error
 	Name() string
 	Version() string
 	Status() Status
