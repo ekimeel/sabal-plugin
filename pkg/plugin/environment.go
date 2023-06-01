@@ -1,9 +1,10 @@
 package plugin
 
 const (
-	DbVar                  = "DB"
-	MetricServiceClientVar = "MetricServiceClient"
-	PointServiceClient     = "PointServiceClient"
+	DbVar                  = "storage/database"
+	MetricServiceClientVar = "service/MetricServiceClient"
+	PointServiceClient     = "service/PointServiceClient"
+	PluginManagerVar       = "manager/PluginManager"
 )
 
 type Environment struct {
