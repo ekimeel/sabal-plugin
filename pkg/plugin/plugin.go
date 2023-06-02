@@ -15,13 +15,12 @@ const (
 )
 
 type Plugin interface {
-	Run(env *Environment) error
+	Run(offset *Offset) error
 	Install(env *Environment) error
 	Name() string
 	Version() string
 	Status() Status
 	LastRuntime() time.Time
-	Offset() Offset
 }
 
 type Offset struct {
