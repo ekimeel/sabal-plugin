@@ -1,12 +1,5 @@
 package plugin
 
-const (
-	DbVar                  = "storage/database"
-	MetricServiceClientVar = "service/MetricServiceClient"
-	PointServiceClient     = "service/PointServiceClient"
-	PluginManagerVar       = "manager/PluginManager"
-)
-
 type Environment struct {
 	registry map[string]any
 }
