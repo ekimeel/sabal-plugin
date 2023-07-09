@@ -1,30 +1,15 @@
 package plugin
 
 import (
+	"github.com/ekimeel/sabal-pb/pb"
 	"plugin"
-	"time"
-)
-
-type Status int8
-
-const (
-	None Status = iota
-	Running
-	Ready
-	Error
 )
 
 type Plugin interface {
-	Run(offset *Offset) error
+	Process(metrics []pb.Metric) error
 	Install(env *Environment) error
 	Name() string
 	Version() string
-	Status() Status
-	LastRuntime() time.Time
-}
-
-type Offset struct {
-	Value time.Time
 }
 
 type PluginManager interface {

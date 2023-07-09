@@ -1,7 +1,6 @@
 on:
   workflow_dispatch:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
@@ -16,14 +15,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # This option instructs the action to fetch all history for all branches and tags.
+      - name: Get tag
+        id: get_tag
+        run: echo ::set-output name=TAG::${GITHUB_REF/refs\/tags\//}
+        # This step extracts the tag from GITHUB_REF. In your original workflow,
+        # the value of github.ref is 'refs/tags/<tag_name>', not just '<tag_name>'.
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.get_tag.outputs.TAG }}
+          release_name: Release ${{ steps.get_tag.outputs.TAG }}
           body: see commit log
           draft: false
           prerelease: false
