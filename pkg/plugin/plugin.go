@@ -1,15 +1,14 @@
 package plugin
 
 import (
-	"github.com/ekimeel/sabal-pb/pb"
+	"context"
 	"plugin"
 )
 
 type Plugin interface {
-	Process(metrics []pb.Metric) error
+	Process(context context.Context, event Event)
 	Install(env *Environment) error
 	Name() string
-	Version() string
 }
 
 type PluginManager interface {
