@@ -1,4 +1,4 @@
-package plugin
+package plugin_utils
 
 import "github.com/ekimeel/sabal-pb/pb"
 
