@@ -1,4 +1,4 @@
-package plugin_utils
+package metric_utils
 
 import "github.com/ekimeel/sabal-pb/pb"
 
