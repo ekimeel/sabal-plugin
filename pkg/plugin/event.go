@@ -7,7 +7,8 @@ type EventType int
 type Type int
 
 const (
-	CollectorFlush EventType = iota
+	SinkFlush EventType = iota
+	SourceNext
 )
 
 const (
