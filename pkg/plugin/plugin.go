@@ -26,6 +26,6 @@ type Plugin interface {
 	// unique among all plugins, and it can be used for logging, error reporting, etc.
 	Name() string
 
-	// PluginType is method that returns the type of plugin.
-	PluginType() PluginType
+	// Type is method that returns the type of plugin.
+	Type() PluginType
 }
