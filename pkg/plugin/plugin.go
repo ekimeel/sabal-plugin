@@ -25,4 +25,7 @@ type Plugin interface {
 	// Name is a method that returns the name of the plugin. The name is expected to be
 	// unique among all plugins, and it can be used for logging, error reporting, etc.
 	Name() string
+
+	// PluginType is method that returns the type of plugin.
+	PluginType() PluginType
 }
