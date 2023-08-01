@@ -27,5 +27,5 @@ type Plugin interface {
 	Name() string
 
 	// Type is method that returns the type of plugin.
-	Type() PluginType
+	Type() Type
 }
