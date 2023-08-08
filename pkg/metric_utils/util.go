@@ -5,8 +5,8 @@ import "github.com/ekimeel/sabal-pb/pb"
 // GroupMetricsByPointId takes a slice of pb.Metric pointers and returns a map where the keys are PointIds
 // and the values are slices of metrics with the corresponding PointId.
 // The returned map may be empty if the input slice is empty.
-func GroupMetricsByPointId(metrics []*pb.Metric) map[uint32][]*pb.Metric {
-	metricsMap := make(map[uint32][]*pb.Metric)
+func GroupMetricsByPointId(metrics []*pb.Metric) map[int64][]*pb.Metric {
+	metricsMap := make(map[int64][]*pb.Metric)
 	for _, metric := range metrics {
 		metricsMap[metric.PointId] = append(metricsMap[metric.PointId], metric)
 	}
